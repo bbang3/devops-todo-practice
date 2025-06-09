@@ -1,10 +1,10 @@
 name: Deploy
 
 on:
-  push: # Trigger the workflow on push events
+  push:
     branches:
       - main
-  # pull_request: # Trigger the workflow on pull request events
+      - release
 
 jobs:
   deploy:
@@ -12,7 +12,14 @@ jobs:
     name: Deploy
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy
+      - name: Deploy to Dev
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          environment: dev
+      - name: Deploy to Prod
+        if: github.ref == 'refs/heads/release'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
