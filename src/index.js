@@ -12,6 +12,7 @@ export default {
             const list = rawList ? JSON.parse(rawList) : [];
 
             list.push({ content });
+
             await env.TODOS.put("list", JSON.stringify(list));
 
             return new Response(JSON.stringify(list), {
