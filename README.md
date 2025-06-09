@@ -1,2 +1,6 @@
-# Devops-todo-practice
+# devops-todo-practice
 DEMO url: https://todo-preview-prod.hwsmin920.workers.dev/
+
+## Endpoints
+- `GET /add?content=<text>`: Add a todo item and return the updated list.
+- `GET /list`: Retrieve all todo items.
