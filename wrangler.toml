@@ -1,4 +1,4 @@
 name = "todo-preview-prod"
 main = "src/index.js"
 account_id = "eaec2a0afc5740e5f0141e8435920a2a"
-compatibility_date = "2025-06-08"
+compatibility_date = "2025-06-08" # Guarantees the compatibility of the API endpoint up to this date
